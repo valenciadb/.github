@@ -35,7 +35,4 @@ jobs:
         run: npm run -ws build
      
       - name: Run unit tests
-        run: npm run -ws cov
-      
-      - name: Run integration tests
-        run: npm run -ws test/itg --if-present
+        run: npm run -ws cov --if-present

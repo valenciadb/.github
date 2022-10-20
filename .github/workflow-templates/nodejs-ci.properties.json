@@ -1,0 +1,6 @@
+{
+  "name": "CI Workflow (Node.js)",
+  "description": "Continuous integration workflow.",
+  "categories": ["node"],
+  "filePatterns": ["package.json$"]
+}

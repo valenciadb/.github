@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash -e {0}
+
+jobs:
+  runTests:
+    name: Node.js ${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node: [18.x]
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      
+      - name: Install dependencies
+        run: npm ci -ws --include-workspace-root
+
+      - name: Build
+        run: npm run -ws build
+     
+      - name: Run unit tests
+        run: npm run -ws cov
+      
+      - name: Run integration tests
+        run: npm run -ws test/itg --if-present

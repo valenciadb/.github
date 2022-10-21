@@ -42,7 +42,7 @@ jobs:
         run: npm ci -ws --include-workspace-root
 
       - name: Build
-        run: npm run -ws build
+        run: npm run build
      
       - name: Run unit tests
         run: npm run cov

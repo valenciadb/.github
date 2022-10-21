@@ -35,7 +35,7 @@ jobs:
           node-version: ${{ matrix.node }}
       
       - name: Set up Antlr4
-        uses: siacodelabs/setup-antlr4@v1
+        uses: siacodelabs/setup-antlr4@v1.0.2
         if: inputs.setupAntlr4
       
       - name: Install dependencies

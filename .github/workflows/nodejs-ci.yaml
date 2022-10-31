@@ -3,7 +3,7 @@ name: CI
 on:
   workflow_call:
     inputs:
-      setupAntlr4:
+      setup-antlr4:
         description: Set up Antlr4.
         required: false
         type: boolean
@@ -16,4 +16,4 @@ jobs:
   unit-tests:
     uses: siacodelabs/.github/github/workflows/nodets-ci.yaml@main
     with:
-      setup-antlr4: true
+      setup-antlr4: ${{ inputs.setup-antlr4 }}
